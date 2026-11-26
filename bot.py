@@ -28,12 +28,15 @@ for key in required_keys:
 
 @bot.event
 async def on_guild_join(guild):
-    if guild.id not in WHITELISTED_SERVERS:
-        print(f"🔒 Unauthorized invitation: {guild.name}")
-        await guild.leave()
-        print(f"✅ Left server: {guild.name}")
+    print(f"📥 Join detected: {guild.name}")
+    print(f"🆔 Server ID: {guild.id}")
+
+    if guild.id in WHITELISTED_SERVERS:
+        print(f"✅ Server approved: {guild.name}")
     else:
-        print(f"✅ Approved server: {guild.name}")
+        print(f"🔒 Server not approved: {guild.name}")
+        await guild.leave()
+        print(f"🚪 Ky’Mar left: {guild.name}")
         
 @bot.event
 async def on_ready():
