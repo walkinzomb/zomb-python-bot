@@ -9,7 +9,7 @@ from datetime import datetime, timedelta
 with open("config.json", "r", encoding="utf-8") as f:
     config = json.load(f)
 
-import os
+
 TOKEN = os.getenv("DISCORD_TOKEN")
 PREFIX = config["prefix"]
 DEFAULT_MESSAGE = config["default_message"]
