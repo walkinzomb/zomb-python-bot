@@ -125,7 +125,7 @@ async def custom_help(ctx, *, command_name: str = None):
         inline=False
     )
 
-    embed.set_footer(text="xrszav's DM Bot | https://oblivity.xyz | https://xrszav.xyz")
+    embed.set_footer(text="purk's DM Bot | https://t.me/zomb1600 | | discord.gg/pape)
     await ctx.send(embed=embed)
 
 @bot.command(name='dm', description="Send a DM to a specific user")
