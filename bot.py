@@ -4,7 +4,9 @@ import asyncio
 import json
 import os
 from datetime import datetime, timedelta
-
+WHITELISTED_SERVERS = [
+    1573942802360836108
+]
 
 with open("config.json", "r", encoding="utf-8") as f:
     config = json.load(f)
@@ -22,6 +24,11 @@ for key in required_keys:
     if key not in config or not config[key].strip():
         raise ValueError(f"Missing or empty config key: {key}")
 
+@bot.event
+async def on_guild_join(guild):
+    if guild.id not in WHITELISTED_SERVERS:
+        await guild.leave()
+        
 @bot.event
 async def on_ready():
     print(f"✅ Logged in as {bot.user} ({bot.user.id})")
