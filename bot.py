@@ -31,8 +31,13 @@ async def on_guild_join(guild):
         
 @bot.event
 async def on_ready():
+    for guild in bot.guilds:
+        if guild.id not in WHITELISTED_SERVERS:
+            await guild.leave()
+            print(f"🔒 Left unauthorized server: {guild.name}")
+
     print(f"✅ Logged in as {bot.user} ({bot.user.id})")
-    print(f"👑 xrszav: Type {PREFIX}help for commands.")
+    print(f"👑 Ky’Mar: Type {PREFIX}help for commands.")
 
 @bot.event
 async def on_command_error(ctx, error):
