@@ -6,6 +6,8 @@ import os
 from datetime import datetime, timedelta
 WHITELISTED_SERVERS = [
     1573942802360836108
+    1566909311144435753
+    1571756812397707406
 ]
 
 with open("config.json", "r", encoding="utf-8") as f:
