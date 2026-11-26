@@ -37,10 +37,17 @@ async def on_guild_join(guild):
         
 @bot.event
 async def on_ready():
+    print(f"🔎 Ky’Mar is currently in {len(bot.guilds)} servers")
+
     for guild in bot.guilds:
+        print(f"🏠 Server found: {guild.name} | ID: {guild.id}")
+
         if guild.id not in WHITELISTED_SERVERS:
             await guild.leave()
             print(f"🔒 Left unauthorized server: {guild.name}")
+
+    print(f"✅ Logged in as {bot.user} ({bot.user.id})")
+    print(f"👑 Ky’Mar: Type {PREFIX}help for commands.")
 
     print(f"✅ Logged in as {bot.user} ({bot.user.id})")
     print(f"👑 Ky’Mar: Type {PREFIX}help for commands.")
